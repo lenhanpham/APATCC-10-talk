@@ -1,0 +1,61 @@
+% Based on infolines theme by Till Tantau <tantau@users.sourceforge.net> and KULEUVEN2 theme
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\mode<presentation>
+
+\definecolor{lbluegreen}{RGB}{0,84,115}
+\definecolor{newitem}{RGB}{253,206,2}
+\definecolor{uibneutral}{RGB}{54,54,53}
+\definecolor{flinders-blue}{RGB}{34,42,69}
+
+
+% Colour dfinitions
+\definecolor{kul-blue}		{RGB}{29,141,176}		%KUL blue (primair blauw)
+\definecolor{kul-secblue}	{RGB}{220,231,240}		%KUL light gray-blue (secundair blauw)
+\definecolor{kul-dark}		{RGB}{47,77,93}			%KUL dark blue 
+\definecolor{gray}			{gray}{.5}				%gray
+\definecolor{lgray}			{gray}{.95}				%light gray for theorem background
+
+
+
+%%%% footer colors for three diffent areas: section, subsection and page in the footer of each slide %%%%%
+\setbeamercolor{section in footer}{fg=white,bg=flinders-blue!95!white}
+\setbeamercolor{subsection in footer}{fg=white,bg=flinders-blue!85!white}
+\setbeamercolor{pagenumber in footer}{fg=white,bg=flinders-blue!75!white}
+
+\defbeamertemplate*{footline}{ifttheme}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.3\paperwidth,ht=2.25ex,dp=1ex,center]{section in footer}%
+    \insertsectionhead
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=0.6\paperwidth,ht=2.25ex,dp=1ex,center]{subsection in footer}%
+    \insertsubsectionhead 
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.1\paperwidth,ht=2.25ex,dp=1ex,center]{pagenumber in footer}%
+   \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+
+ \hypersetup{hidelinks} %disable link colors
+  \begin{tikzpicture}[remember picture,overlay]
+  % Flinders Uni logo
+    \node [anchor=east,xshift=-.0\paperheight,yshift=.05\paperheight] at (current page.south east) 
+      {\includegraphics[height=.04\paperheight]{\logofile}};
+    \end{tikzpicture}
+  
+}
+
+
+
+\setbeamersize{text margin left=1em,text margin right=1em}
+%\setbeamersize{frametitle=\huge}
+\mode
+<all>
+
+
+
+

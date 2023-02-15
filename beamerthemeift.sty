@@ -1,0 +1,208 @@
+%
+% Loosely based on Boadilla by Manuel Carro
+%
+% Original:
+% Copyright 2004 by Manuel Carro <mcarro@fi.upm.es>
+%
+% This program can be redistributed and/or modified under the terms
+% of the GNU Public License, version 2.
+
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\ProcessOptionsBeamer
+
+\useoutertheme{ift}
+
+%%%%Logo of RMIT 
+\def\logofile{graphics/Flinders.pdf}
+
+
+
+%
+% Color definitions
+%
+\definecolor{uibred}{RGB}{178,7,122}
+\definecolor{uibblue}{RGB}{0, 84, 115}
+\definecolor{uibgreen}{RGB}{119, 175, 0}
+\definecolor{uiborange}{RGB}{217, 89, 0}
+
+\definecolor{newitem}{RGB}{253,206,2}
+\setbeamercolor{boxl}{fg=black,bg=uibblue!20!white}
+\setbeamercolor{boxu}{fg=white,bg=uibblue}
+
+%
+% Redefinition of beamer colors
+%
+%\setbeamercolor{enumerate item}{fg=uibred,bg=uibred!20!white}
+%\setbeamercolor{enumerate subitem}{fg=uibred,bg=uibred!20!white}
+%\setbeamercolor{enumerate}{fg=uibred,bg=uibred}
+%\setbeamercolor{itemize item}{fg=uiborange}
+%\setbeamercolor{itemize subitem}{fg=uibgreen}
+%\setbeamercolor{frametitle}{fg=uibblue}
+%\setbeamercolor{title}{fg=blue}
+%\setbeamercolor{section}{fg=uibblue}
+%\setbeamercolor{subsection}{fg=uibblue}
+%\setbeamercolor{itemize}{fg=uibblue}
+%\setbeamercolor{alerted text}{fg=uibred}
+
+%%		
+ %%  COLOURS and FONT STYLES
+ %%
+
+% Colour dfinitions
+\definecolor{deakin-black}		{RGB}{54,54,53}
+\definecolor{flinders-blue}		{RGB}{34,42,69}
+\definecolor{kul-blue}		{RGB}{29,141,176}		%KUL blue (primair blauw)
+\definecolor{kul-secblue}	{RGB}{220,231,240}		%KUL light gray-blue (secundair blauw)
+\definecolor{kul-dark}		{RGB}{47,77,93}			%KUL dark blue 
+\definecolor{gray}			{gray}{.5}				%gray
+\definecolor{lgray}			{gray}{.95}				%light gray for theorem background
+
+% Text colours
+%\hypersetup{colorlinks,linkcolor=kul-blue,urlcolor=kul-blue} %link colors
+\urlstyle{sf}					%url addreses are sans-serif font (not typewritter)
+        
+\setbeamercolor{normal text}	{fg = black}			%text color
+\setbeamertemplate{frametitle}{\vspace{0.16cm} \color{white}  \insertframetitle}  %frame title color
+%\setbeamercolor{frametitle}		{fg=rmit-red}			%frame title color
+\setbeamercolor{section in toc}{fg=flinders-blue}			%toc (section) color
+\setbeamercolor{section in toc shaded}{fg=flinders-blue}		%toc (shaded section) color
+\setbeamercolor{item}			{fg=flinders-blue}			%item color
+\setbeamercolor{subitem}		{fg=uibgreen}			%subitem color
+\setbeamercolor{subsubitem}		{fg=flinders-blue}			%subsubitem color
+\setbeamercolor{text}			{fg=white,bg=flinders-blue}	%text block color
+\setbeamercolor{caption name}	{fg=black}				%figure and table caption color
+\setbeamercolor{abstract title}	{fg=flinders-blue}			%abstract title color
+
+% Blocks, theorem-like environments and colorboxes
+\setbeamerfont{block title} {size=\normalsize}				%block title font size
+\setbeamercolor{block title}{bg=lgray,fg=flinders-blue}			%block title colour
+\setbeamercolor{block body} {bg=lgray,fg=black}				%block body colour
+\setbeamertemplate{qed symbol}{\color{flinders-blue} $\square$}	%end of proof symbol
+
+\setbeamercolor{block title alerted}{bg=white!95!red}				%alertbloc title (red)
+\setbeamercolor{block body alerted}{bg=white!95!red}				%alertbloc body
+
+\setbeamercolor{block title example}{bg=white!95!flinders-blue,fg=flinders-blue} 	%example block title (blue)
+\setbeamercolor{block body example}{bg=white!95!flinders-blue,fg=black}		%example block body
+
+\setbeamercolor{box1}		{fg=white,bg=flinders-blue}		
+\setbeamercolor{box2}		{fg=flinders-blue,bg=lgray}			%five different colour schemes for Beamer colour box
+\setbeamercolor{box3}		{fg=black,bg=lgray}
+\setbeamercolor{box4}		{fg=red,bg=lgray}	
+\setbeamercolor{box5}		{fg=white,bg=red}	
+
+\setbeamercolor{button}		{bg= lgray,fg=flinders-blue}			%button frame
+
+
+
+ %%		
+ %%  INNER THEME
+ %%
+ \setbeamertemplate{sections/subsections in toc}[circle]			%toc symbols
+ %\setbeamersize{text margin left=21pt,text margin right=21pt} 	%text margins
+ \setbeamersize{text margin left=1em,text margin right=1em}
+%\setbeamersize{frametitle=\huge}
+
+ %itemize list
+     \setbeamertemplate{itemize item}[square]               %item symbol (square)
+     \setbeamertemplate{itemize subitem}[circle]			%subitem symbol (cirlce)
+     \renewcommand\textbullet{\ensuremath{\bullet}}		%correction for warning for subitem circle bullect
+     \setbeamertemplate{itemize subsubitem}{-}			%subsubitem symbol (short hypthen)
+
+
+ %enumerate list
+     \setbeamertemplate{enumerate item}{\small  \insertenumlabel  \enspace }		%enumerate symbol
+     \setbeamertemplate{enumerate subitem}{\scriptsize \raisebox{.085em} \insertsubenumlabel } 	%subenumerate symbol
+     \setbeamertemplate{enumerate subsubitem}{\tiny \raisebox{.18em} \insertsubsubenumlabel } 	%subenumerate symbol
+
+
+% Tills' opinion: should be done in an inner theme, not here.
+
+%\setbeamertemplate{frametitle}[default][right]
+%\setbeamertemplate{frametitle}{\vspace{1.7cm}  \insertframetitle}
+
+
+
+
+
+%%%%%%TITLE PAGE %%%%%%%%%%
+
+\setbeamertemplate{title page}
+{
+ 
+    \begin{tikzpicture}[remember picture,overlay]
+    % red background mono fill
+    \fill [color=flinders-blue]
+        (current page.south east)   rectangle   ([shift={(0,-0.0945\paperheight)}]current page.north west);
+    
+    \fill [color=yellow]
+    ([shift={(0,-0.0945\paperheight)}]current page.north west)   rectangle   (current page.north east);
+
+    % kul-secblue rectangle
+    \node [fill,fill=kul-secblue,minimum width=\paperwidth,minimum height=0.255\paperheight,anchor=south west] 
+        at (current page.south west) {};
+
+                                                           
+    % Flinders logo
+    \node [anchor=north west,xshift=0.00\paperheight,yshift=-.015\paperheight,inner sep=0pt] 
+        at (current page.north west) 
+        {\includegraphics[height=.205\paperheight]{\logofile}};
+
+    % title graphic (optional)
+    \node [anchor=north east,xshift=-.0525\paperwidth,yshift=.8425\paperheight,inner sep=0pt] 
+        at (current page.south east) 
+        {\inserttitlegraphic};
+
+    % subtitle
+    \node [white, text width=.66\paperwidth, text depth=0pt, 
+        anchor=north west, xshift=.082\paperheight, yshift=.4\paperheight, 
+        font=\fontsize{10}{11}\bfseries] (subtitle)
+         at (current page.south west) 
+         {\insertsubtitle};
+
+    % title
+    \node [white, text width=0.82\paperwidth, minimum height=.3\paperheight, 
+        node distance=3pt, above=of subtitle.north west,anchor=south west, 
+        font=\fontsize{21}{22}\bfseries]
+        {\inserttitle};
+
+    % authors, institure, date   
+    \node [flinders-blue, text width=.66\paperwidth, text depth=0pt,
+        anchor=north west, xshift=.082\paperheight, yshift=.24\paperheight, 
+        font=\fontsize{10}{11}] 
+        at (current page.south west) 
+        {\insertauthor 
+        
+        \vspace{2pt} 
+        \insertinstitute 
+        
+        \vspace{2pt} 
+        \insertdate };	
+
+    \end{tikzpicture}
+}
+
+% Set the background for the rest of the slides.
+% Insert infoline at the end
+% % % Slide background % % %
+
+\setbeamertemplate{background}
+{\begin{tikzpicture}[remember picture,overlay]
+    \fill [color=flinders-blue]
+    ([shift={(0,-0.105\paperheight)}]current page.north west)   rectangle   (current page.north east);
+\end{tikzpicture}
+}
+
+% % % end of slide background % % %
+
+
+
+\ifbeamer@secheader\else\setbeamertemplate{headline}[default]\fi
+
+\mode
+<all>

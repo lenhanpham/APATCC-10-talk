@@ -1,0 +1,84 @@
+\usepackage{pgf,pgfpages}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\graphicspath{{./images/}}
+\usepackage[justification=centering]{caption}
+%\usepackage{subcaption}
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,shadows,arrows,backgrounds,mindmap,decorations.pathreplacing,positioning}
+
+\usepackage{units}
+\usepackage[utf8]{inputenc}
+\usepackage[T5]{fontenc}
+\usepackage{color}
+
+\usepackage[version =4]{mhchem}
+\usepackage{chemformula}
+
+\usepackage{array}
+
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+
+%%$ to change magin of slides
+\usepackage[strict]{changepage} 
+
+%\usepackage{setspace}
+
+%%% For Chinese Character 
+\usepackage{CJKutf8}
+\AtBeginDvi{\input{zhwinfonts}}
+
+\newcommand\blfootnote[1]{%
+	\begingroup
+	\renewcommand\thefootnote{}\footnote{#1}%
+	\addtocounter{footnote}{-1}%
+	\endgroup
+}
+
+
+
+\mode<presentation>
+{
+	\usetheme{ift}
+	\setbeamercovered{transparent}
+}
+
+\usefonttheme[onlymath]{serif}
+\setbeamerfont{frametitle}{size=\Large,series=\bfseries}
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+%\setbeamerfont{block body}{size=\huge}
+
+
+\definecolor{uibred}{RGB}{170, 0, 0}
+\definecolor{uibblue}{RGB}{0, 84, 115}
+\definecolor{uibgreen}{RGB}{119, 175, 0}
+%\definecolor{uibgreen}{RGB}{50, 105, 0}
+\definecolor{uiborange}{RGB}{217, 89, 0}
+
+
+\beamertemplatenavigationsymbolsempty
+
+
+
+
+\defbeamertemplate{enumerate item}{mycircle}
+{
+	\begin{pgfpicture}{0ex}{0ex}{1.5ex}{0ex}
+		%\pgfcircle[fill]{\pgfpoint{0pt}{.75ex}}{1.25ex}
+		\pgfbox[center,base]{\color{uibblue}\insertenumlabel.}
+	\end{pgfpicture}%
+}
+[action]
+{\setbeamerfont{item projected}{size=\scriptsize}}
+\setbeamertemplate{enumerate item}[mycircle]
+
+
+%\usepackage[vietnam, english]{babel}
+%\usepackage{fourier}
